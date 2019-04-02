@@ -25,13 +25,15 @@ class MyProvider extends Component {
         }}
       >
         {this.props.children}
-        })
+      
       </MyContext.Provider>
+     
     );
+    
   }
 }
 
-const Family = props => (
+const Family = (props)=> (
   <div className="family">
     <Person />
   </div>
@@ -42,7 +44,7 @@ class Person extends Component {
     return (
       <div className="Person">
         <MyContext.Consumer>
-          {context => (
+          {(context) => (
             <React.Fragment>
               <h1>Name:{context.state.name}</h1>
               <h1>Age:{context.state.age}</h1>
