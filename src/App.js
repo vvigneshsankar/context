@@ -13,7 +13,10 @@ class MyProvider extends Component{
     return(
       <MyContext.Provider value={{state:this.state,
      growYearOlder:()=>this.setState({
-        age:this.state.age+1})}}>
+        age:this.state.age+1}),
+        growYearYounger:()=>this.setState({
+        age:this.state.age-1})
+        }}>
         {this.props.children}
         
         })
@@ -35,8 +38,11 @@ class Person extends Component {
    <MyContext.Consumer>
      {(context)=>(
        <React.Fragment>
+       <h1>Name:{context.state.name}</h1>
        <h1>Age:{context.state.age}</h1>
-       <button onClick={context.growYearOlder}>Grow</button>
+       <button onClick={context.growYearYounger}>Grow Younger</button>
+       &nbsp;
+       <button onClick={context.growYearOlder}>Grow Older</button>
        </React.Fragment>
      )
 
